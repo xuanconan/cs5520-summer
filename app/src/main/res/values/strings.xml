@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">NUMAD18F-KeXuan</string>
+    <string name="title_name">NUMAD18F-KeXuan</string>
+    <string name="aboutButton">About</string>
+    <string name="errorButton">Generate Error</string>
+    <string name="name">Ke Xuan</string>
+    <string name="email">xuanconan@gmail.com</string>
+    <string name="yearInSchool">2nd year</string>
+    <string name="uniqueId">IMEI Number</string>
+    <string name="closeButton">Close</string>
+    <string name="textViewVersionCode">Version Code: 1</string>
+    <string name="textViewVersionName">Version Name: 1.0</string>
+</resources>
