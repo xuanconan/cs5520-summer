@@ -11,32 +11,32 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="match_parent"
-        android:layout_height="33dp"
-        android:gravity="center"
-        android:text="@string/name"
-        android:textColor="#000000"
-        android:textSize="15sp" />
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:gravity="center"
+            android:text="@string/name"
+            android:textColor="#000000"
+            android:textSize="15sp" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:gravity="center"
-        android:text="@string/email"
-        android:textColor="#000000"
-        android:textSize="15sp" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:gravity="center"
+            android:text="@string/email"
+            android:textColor="#000000"
+            android:textSize="15sp" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:gravity="center"
-        android:text="@string/yearInSchool"
-        android:textColor="#000000"
-        android:textSize="15sp" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:gravity="center"
+            android:text="@string/yearInSchool"
+            android:textColor="#000000"
+            android:textSize="15sp" />
 
 
         <ImageView
@@ -52,21 +52,26 @@
             app:layout_constraintTop_toBottomOf="@+id/textView3"
             app:srcCompat="@drawable/me" />
 
-    <TextView
-        android:id="@+id/uniqueId"
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:gravity="center"
-        android:text="@string/uniqueId"
-        android:textSize="15sp"
-        app:layout_constraintTop_toBottomOf="@+id/selfImage" />
+        <TextView
+            android:id="@+id/uniqueId"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:gravity="center"
+            android:text="@string/uniqueId"
+            android:textSize="15sp"
+            app:layout_constraintTop_toBottomOf="@+id/selfImage" />
 
-    <Button
-        android:id="@+id/buttonClose"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/closeButton" />
+        <Button
+            android:id="@+id/buttonClose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@android:color/holo_blue_dark"
+            android:gravity="center"
+            android:text="@string/closeButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </LinearLayout>
 

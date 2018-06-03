@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button aboutButton;
     private Button errorButton;
+    private Button dictButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,19 +18,27 @@ public class MainActivity extends AppCompatActivity {
 
         //A Titlebar with your name
         setTitle("Ke Xuan");
-
         setContentView(R.layout.activity_main);
 
-        aboutButton = (Button) findViewById(R.id.aboutButton);
+        // Go to dictionary page
+        dictButton = (Button) findViewById(R.id.dictButton);
+        dictButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent dictionary = new Intent(MainActivity.this,
+                        DictionaryActivity.class);
+                startActivity(dictionary);
+            }
+        });
 
+        aboutButton = (Button) findViewById(R.id.aboutButton);
         // go to about page
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent about = new Intent(MainActivity.this, ActivityAbout.class);
+                Intent about = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(about);
             }
-
         });
 
         errorButton = (Button) findViewById(R.id.errorButton);

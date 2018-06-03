@@ -3,11 +3,35 @@
     <string name="title_name">NUMAD18F-KeXuan</string>
     <string name="aboutButton">About</string>
     <string name="errorButton">Generate Error</string>
+    <string name="dictButton">Dictionary</string>
     <string name="name">Ke Xuan</string>
     <string name="email">xuanconan@gmail.com</string>
     <string name="yearInSchool">2nd year</string>
     <string name="uniqueId">IMEI Number</string>
     <string name="closeButton">Close</string>
-    <string name="textViewVersionCode">Version Code: 1</string>
-    <string name="textViewVersionName">Version Name: 1.0</string>
+    <string name="textViewVersionCode">Version Code: 2</string>
+    <string name="textViewVersionName">Version Name: 2.0</string>
+    <string name="acknowledgementsButton">Acknowledgements</string>
+    <string name="clearButton">Clear</string>
+    <string name="acknowledgements">Acknowledgements</string>
+
+
+    <string-array name="acknowledgementsList">
+
+        <item>
+            Image of Detective Conan
+            \nhttp://static1.comicvine.com/uploads/scale_super/11111/111111327/3278747-dc-detective-conan-17352255-857-933.jpg
+        </item>
+
+        <item>
+        How to make a beep in android?
+        \nhttps://stackoverflow.com/questions/12154940/how-to-make-a-beep-in-android
+        </item>
+
+        <item>
+            ListView Tutorial With Example In Android Studio
+            \nhttp://abhiandroid.com/ui/listview
+        </item>
+
+    </string-array>
 </resources>
