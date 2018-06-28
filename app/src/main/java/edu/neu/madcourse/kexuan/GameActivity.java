@@ -32,6 +32,7 @@ public class GameActivity extends Activity {
     private ArrayList<String> dictionaryList = new ArrayList<String>();
     private MediaPlayer mediaPlayer;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,7 +129,7 @@ public class GameActivity extends Activity {
         finish();
     }
 
-    // Pause music
+    //music control
     @Override
     protected void onPause() {
         super.onPause();
@@ -137,7 +138,6 @@ public class GameActivity extends Activity {
         mediaPlayer.release();
     }
 
-    // Resume music
     @Override
     protected void onResume() {
         super.onResume();

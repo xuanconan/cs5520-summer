@@ -3,6 +3,7 @@ package edu.neu.madcourse.kexuan;
 import android.app.Fragment;
 import android.graphics.Color;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -50,7 +51,7 @@ public class GameFragment extends Fragment {
     private String currWord2 = "";
     private int phase1Score;
 
-    private int soundWarning, soundInvalid, soundClick, soundSuccess;
+    private int soundWarning, soundInvalid, soundClick, soundSuccess, mariohurry;
     private SoundPool soundPool;
     private float mVolume = 0.7f;
 
@@ -59,7 +60,6 @@ public class GameFragment extends Fragment {
     private boolean valid = true;
     private int phase1Time = 120;
     private int phase2Time = 60;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -76,6 +76,7 @@ public class GameFragment extends Fragment {
         soundClick = soundPool.load(getActivity(), R.raw.soundclick, 1);
         soundWarning = soundPool.load(getActivity(), R.raw.soundwarning, 1);
         soundInvalid = soundPool.load(getActivity(), R.raw.soundinvalid, 1);
+        mariohurry = soundPool.load(getActivity(), R.raw.mariohurry, 1);
     }
 
 
@@ -354,61 +355,7 @@ public class GameFragment extends Fragment {
     }
 
 
-    //get the total valid words score
-    public int getTotalScore() {
-        int score = 0;
-        for (String s : selectedChar) {
-            for (int i = 0; i< s.length(); i++ )
-                score += getCharScore(s.charAt(i));
-        }
-        return score;
-    }
 
-    // Score based on character frequency in English
-    public int getCharScore(Character c) {
-
-        if (c == 'e' || c == 't' || c == 'a' || c == 'o' || c == 'i' || c == 'n' || c == 's' || c == 'r' )
-            return 1;
-
-        if (c == 'h' || c == 'd' || c == 'l' || c == 'u' || c == 'c' || c == 'm' || c == 'f' )
-            return 2;
-
-        if (c == 'y' || c == 'w' || c == 'g' || c == 'p' || c == 'b' || c =='v')
-            return 3;
-
-        if (c == 'f' || c == 'h' || c == 'v' || c == 'w' || c == 'y' || c=='u' || c == 'k')
-            return 4;
-
-        if (c == 'x' || c == 'q')
-            return 6;
-
-        if (c == 'j' || c == 'z')
-            return 8;
-
-        return 0;
-    }
-
-    //load dictionary
-    public void getDictionary() {
-
-        InputStream is = this.getResources().openRawResource(R.raw.wordlist);
-        wordSet = new HashSet<String>();
-
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new InputStreamReader(is));
-            String line = reader.readLine();
-            while (line != null) {
-                wordSet.add(line);
-                line = reader.readLine();
-            }
-            reader.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     //hide game when pause, unhide when resume
     public void hideGame(boolean isHide) {
@@ -445,6 +392,7 @@ public class GameFragment extends Fragment {
         phase1Score = totalScore;
         rootView.findViewById(R.id.button_phase2).setVisibility(View.VISIBLE);
         currWordView.setText("");
+        soundPool.play(mariohurry, mVolume, mVolume, 1, 0, 1f);
         rootView.findViewById(R.id.button_phase2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -569,10 +517,70 @@ public class GameFragment extends Fragment {
         });
     }
 
+
+    //get the total valid words score, based on frequency of characters and length
+    public int getTotalScore() {
+        int score = 0;
+        int l = selectedChar.size();
+        for (String s : selectedChar) {
+            for (int i = 0; i< s.length(); i++ ) {
+                score += getCharScore(s.charAt(i))*l;
+            }
+        }
+        return score;
+    }
+
+    // Score based on character frequency in English
+    public int getCharScore(Character c) {
+
+        if (c == 'e' || c == 't' || c == 'a' || c == 'o' || c == 'i' || c == 'n' || c == 's' || c == 'r' )
+            return 1;
+
+        if (c == 'h' || c == 'd' || c == 'l' || c == 'u' || c == 'c' || c == 'm' || c == 'f' )
+            return 2;
+
+        if (c == 'y' || c == 'w' || c == 'g' || c == 'p' || c == 'b' || c =='v')
+            return 3;
+
+        if (c == 'f' || c == 'h' || c == 'v' || c == 'w' || c == 'y' || c=='u' || c == 'k')
+            return 4;
+
+        if (c == 'x' || c == 'q')
+            return 6;
+
+        if (c == 'j' || c == 'z')
+            return 8;
+
+        return 0;
+    }
+
+    //load dictionary
+    public void getDictionary() {
+
+        InputStream is = this.getResources().openRawResource(R.raw.wordlist);
+        wordSet = new HashSet<String>();
+
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new InputStreamReader(is));
+            String line = reader.readLine();
+            while (line != null) {
+                wordSet.add(line);
+                line = reader.readLine();
+            }
+            reader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void GameEnd() {
         myTimer.initTime(0);
         myTimer.stop();
         chronometer.stop();
     }
+
 
 }

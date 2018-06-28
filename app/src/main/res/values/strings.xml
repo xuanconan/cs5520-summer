@@ -60,6 +60,11 @@
             Hello Android, Ultimate Tic Tac Toe game
         </item>
 
+        <item>
+            English Letter Frequency
+            \nhttp://pi.math.cornell.edu/~mec/2003-2004/cryptography/subs/frequencies.html
+        </item>
+
 
     </string-array>
 </resources>
