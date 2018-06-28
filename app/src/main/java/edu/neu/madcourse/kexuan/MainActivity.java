@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
     private Button aboutButton;
     private Button errorButton;
     private Button dictButton;
+    private Button gameButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 throw new RuntimeException("Oops, the app crashed.");
+            }
+        });
+
+        // go to game page
+        gameButton = (Button) findViewById(R.id.gameButton);
+        gameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent game = new Intent(MainActivity.this, GameActivity.class);
+                startActivity(game);
             }
         });
     }

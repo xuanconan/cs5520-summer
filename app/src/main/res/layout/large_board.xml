@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context="edu.neu.madcourse.kexuan.GameActivity">
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_row="0"
+        android:text="@string/score_1"
+        android:textAlignment="center"
+        android:textColor="@color/text_color1"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/text_score"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_column="1"
+        android:layout_row="0"
+        android:text="@string/score_0"
+        android:textAlignment="center"
+        android:textColor="@color/text_color1"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/text_timer1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_column="0"
+        android:layout_row="1"
+        android:text="@string/timer1"
+        android:textAlignment="center"
+        android:textColor="@color/text_color1"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+
+    <edu.neu.madcourse.kexuan.Timer
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_row="1"
+        android:textColor="@color/text_color1"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
+
+
+    <TextView
+        android:id="@+id/text_word1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_column="0"
+        android:layout_row="2"
+        android:text="@string/text_word1"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@color/text_color1"/>
+
+
+
+    <TextView
+        android:id="@+id/text_word"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_column="1"
+        android:layout_row="2"
+        android:textAlignment="center"
+        android:textColor="@color/text_color1"
+        android:textStyle="bold"
+        android:text="@string/text_word"
+        android:textSize="16sp"/>
+
+
+
+    <include
+        android:id="@+id/large1"
+        layout="@layout/small_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_margin="@dimen/small_board_margin"
+        android:layout_gravity= "center"
+        android:layout_row="4" />
+
+    <include
+        android:id="@+id/large2"
+        layout="@layout/small_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_margin="@dimen/small_board_margin"
+        android:layout_gravity= "center"
+        android:layout_row="4" />
+
+    <include
+        android:id="@+id/large3"
+        layout="@layout/small_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="2"
+        android:layout_margin="@dimen/small_board_margin"
+        android:layout_gravity= "center"
+        android:layout_row="4" />
+
+    <include
+        android:id="@+id/large4"
+        layout="@layout/small_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_margin="@dimen/small_board_margin"
+        android:layout_gravity= "center"
+        android:layout_row="5" />
+
+    <include
+        android:id="@+id/large5"
+        layout="@layout/small_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_margin="@dimen/small_board_margin"
+        android:layout_gravity= "center"
+        android:layout_row="5" />
+
+    <include
+        android:id="@+id/large6"
+        layout="@layout/small_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="2"
+        android:layout_margin="@dimen/small_board_margin"
+        android:layout_gravity= "center"
+        android:layout_row="5" />
+
+    <include
+        android:id="@+id/large7"
+        layout="@layout/small_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_margin="@dimen/small_board_margin"
+        android:layout_gravity= "center"
+        android:layout_row="6" />
+
+    <include
+        android:id="@+id/large8"
+        layout="@layout/small_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_margin="@dimen/small_board_margin"
+        android:layout_gravity= "center"
+        android:layout_row="6" />
+
+    <include
+        android:id="@+id/large9"
+        layout="@layout/small_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="2"
+        android:layout_margin="@dimen/small_board_margin"
+        android:layout_gravity= "center"
+        android:layout_row="6" />
+
+
+
+
+    <Button
+        android:id="@+id/button_submit"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/elevation_low"
+        android:layout_marginTop="10dp"
+        android:layout_column="0"
+        android:layout_row="7"
+        android:text="@string/submit_label"
+        android:layout_gravity= "center"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:background="@android:color/holo_blue_dark"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/button_phase2"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/elevation_low"
+        android:layout_marginTop="10dp"
+        android:layout_column="1"
+        android:layout_row="7"
+        android:text="@string/phase2_button"
+        android:layout_gravity= "center"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:background="@android:color/holo_purple"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/button_pauseGame"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/elevation_low"
+        android:layout_marginTop="10dp"
+        android:layout_column="2"
+        android:layout_row="7"
+        android:text="@string/pause_button"
+        android:layout_gravity= "center"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:background="@android:color/holo_red_light"
+        android:textAllCaps="false" />
+
+
+
+
+    <Chronometer
+        android:id="@+id/chronometer_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_color1"
+        android:textStyle="bold"
+        android:textSize="0sp"/>
+
+
+</GridLayout>

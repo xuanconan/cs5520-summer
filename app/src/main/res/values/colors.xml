@@ -3,4 +3,18 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="field_color">#b5cee0</color>
+    <color name="border_color">#7f7f7f</color>
+    <color name="dark_border_color">#4f4f4f</color>
+    <color name="available_color">#487048</color>
+    <color name="blue_color">#3346af</color>
+    <color name="gray_color">#bfbfbf</color>
+    <color name="yellow_color">#ffffff00</color>
+    <color name="text_color1">#ffffff</color>
+    <color name="purple_color">#7f007f</color>
+    <color name="red_color">#ff7f7f</color>
+    <color name="thinking_background_color">#cfdfdfdf</color>
+    <color name="dark_red_color">#E8542C</color>
+    <color name="textcolor">#3F51B5</color>
 </resources>

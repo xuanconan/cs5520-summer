@@ -9,11 +9,24 @@
     <string name="yearInSchool">2nd year</string>
     <string name="uniqueId">IMEI Number</string>
     <string name="closeButton">Close</string>
-    <string name="textViewVersionCode">Version Code: 2</string>
-    <string name="textViewVersionName">Version Name: 2.0</string>
+    <string name="textViewVersionCode">Version Code: 3</string>
+    <string name="textViewVersionName">Version Name: 3.0</string>
     <string name="acknowledgementsButton">Acknowledgements</string>
     <string name="clearButton">Clear</string>
+    <string name="gameButton">Word Game</string>
     <string name="acknowledgements">Acknowledgements</string>
+
+    <string name="timer1">Time:</string>
+    <string name="timer2">4:00</string>
+    <string name="text_word">current input</string>
+    <string name="text_word1">Current input:</string>
+    <string name="score_1">Score:</string>
+    <string name="score_0">0</string>
+    <string name="submit_label">Check word</string>
+    <string name="pause_button">Pause</string>
+    <string name="phase2_button">Go Phase2</string>
+    <string name="phase2_end">Game Over</string>
+    <string name="phase2_begin">Please press Phase2!</string>
 
 
     <string-array name="acknowledgementsList">
@@ -24,14 +37,29 @@
         </item>
 
         <item>
-        How to make a beep in android?
-        \nhttps://stackoverflow.com/questions/12154940/how-to-make-a-beep-in-android
+            How to make a beep in android?
+            \nhttps://stackoverflow.com/questions/12154940/how-to-make-a-beep-in-android
         </item>
 
         <item>
             ListView Tutorial With Example In Android Studio
             \nhttp://abhiandroid.com/ui/listview
         </item>
+
+        <item>
+            Super Mario Bros Sound
+            \nhttps://downloads.khinsider.com/game-soundtracks/album/super-mario-bros
+        </item>
+
+        <item>
+            Super Mario background pic
+            \nhttp://www.ilikewallpaper.net/iphone-se-wallpaper/Super-Mario/17515
+        </item>
+
+        <item>
+            Hello Android, Ultimate Tic Tac Toe game
+        </item>
+
 
     </string-array>
 </resources>

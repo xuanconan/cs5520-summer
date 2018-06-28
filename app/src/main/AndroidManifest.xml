@@ -21,6 +21,7 @@
         <activity android:name=".AboutActivity"></activity>
         <activity android:name=".DictionaryActivity"></activity>
         <activity android:name=".AcknowledgementsActivity"></activity>
+        <activity android:name=".GameActivity"></activity>
 
     </application>
 

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.neu.madcourse.kexuan.GameActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/mario2"/>
+
+    <include layout="@layout/thinking"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <fragment
+            android:id="@+id/fragment_game"
+            android:name="edu.neu.madcourse.kexuan.GameFragment"
+            class="edu.neu.madcourse.kexuan.GameFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            tools:layout="@layout/fragment_game" />
+        <!-- Control fragment goes here... -->
+
+        <ToggleButton
+            android:id="@+id/button_toggle"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:elevation="@dimen/elevation_low"
+            android:checked="true"
+            android:textAllCaps="false"
+            android:textOff="Music Off"
+            android:textOn="Music On" />
+
+
+    </LinearLayout>
+
+</FrameLayout>
