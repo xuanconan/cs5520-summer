@@ -1,6 +1,7 @@
 package edu.neu.madcourse.kexuan;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -60,6 +61,10 @@ public class GameFragment extends Fragment {
     private boolean valid = true;
     private int phase1Time = 120;
     private int phase2Time = 60;
+
+    private int highestScore=0;
+    private String highestscoreWord="";
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -209,6 +214,13 @@ public class GameFragment extends Fragment {
                 }
 
                 if (wordSet.contains(currWord) || wordSet.contains(currWord2)) {
+
+
+                    int score = getTotalScore();
+                    if(score > highestScore){
+                        highestScore = score;
+                        highestscoreWord = currWord;
+                    }
 
                     totalScore += getTotalScore();
 
@@ -577,6 +589,23 @@ public class GameFragment extends Fragment {
     }
 
     public void GameEnd() {
+        SubmitScoreActivity submitScore = new SubmitScoreActivity();
+        if(highestScore < 1){
+            highestscoreWord = "N/A";
+        }
+        System.out.println("total score= "+totalScore);
+        System.out.println("phase1 = "+phase1Score);
+        System.out.println("highest score= "+highestScore);
+        System.out.println("highest score word= "+highestscoreWord);
+        System.out.println("end");
+
+        Intent i = new Intent(getActivity(), SubmitScoreActivity.class);
+        i.putExtra("totalScore",String.valueOf(totalScore));
+        i.putExtra("phaseoneScore",String.valueOf(phase1Score));
+        i.putExtra("highestScore",String.valueOf(highestScore));
+        i.putExtra("highestscoreWord",highestscoreWord);
+        startActivity(i);
+
         myTimer.initTime(0);
         myTimer.stop();
         chronometer.stop();

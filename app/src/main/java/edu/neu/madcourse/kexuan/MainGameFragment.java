@@ -20,40 +20,37 @@ public class MainGameFragment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_gamemain);
 
+
+
+        // go to leader board
+        leader_board=(Button)findViewById(R.id.leader_board);
+        leader_board.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent lb = new Intent(MainGameFragment.this, LeaderBoardActivity.class);
+                startActivity(lb);
+            }
+        });
+
+        // start a game
         new_game=(Button)findViewById(R.id.new_game);
         new_game.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainGameFragment.this, GameActivity.class);
-                startActivity(i);
+                Intent game = new Intent(MainGameFragment.this, GameActivity.class);
+                startActivity(game);
             }
         });
 
-//        score_board=(Button)findViewById(R.id.score_board);
-//        score_board.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(MainGameFragment.this, Scoreboard_Activity.class);
-//                startActivity(i);
-//            }
-//        });
-//
-//        leader_board=(Button)findViewById(R.id.leader_board);
-//        leader_board.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(MainGameFragment.this, Leaderboard_Activity.class);
-//                startActivity(i);
-//            }
-//        });
+        // go to score board
+        score_board=(Button)findViewById(R.id.score_board);
+        score_board.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sb = new Intent(MainGameFragment.this, ScoreBoardActivity.class);
+                startActivity(sb);
+            }
+        });
 
-//        final String token = FirebaseInstanceId.getInstance().getToken();
-//        token_button=(Button)findViewById(R.id.token_button);
-//        token_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getApplication(), token, Toast.LENGTH_LONG).show();
-//            }
-//        });
     }
 }

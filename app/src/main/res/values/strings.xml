@@ -9,6 +9,7 @@
     <string name="yearInSchool">2nd year</string>
     <string name="uniqueId">IMEI Number</string>
     <string name="closeButton">Close</string>
+    <string name="submit_Button">Submit</string>
     <string name="textViewVersionCode">Version Code: 4</string>
     <string name="textViewVersionName">Version Name: 4.1</string>
     <string name="acknowledgementsButton">Acknowledgements</string>
@@ -28,9 +29,11 @@
     <string name="phase2_end">Game Over</string>
     <string name="phase2_begin">Please press Phase2!</string>
     <string name="game_name">Mario Scroggle!</string>
-    <string name="start_game">Start</string>
+    <string name="start_game">Start\nGame</string>
     <string name="score_board">Score Board</string>
     <string name="leader_board">Leader Board</string>
+    <string name="input_username">Your username</string>
+
 
 
 
@@ -74,6 +77,11 @@
             English Letter Frequency
             \nhttp://pi.math.cornell.edu/~mec/2003-2004/cryptography/subs/frequencies.html
         </item>
+
+        <item>
+            NUOEL-ccs5510_mod6
+        </item>
+
 
 
     </string-array>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@drawable/mario13"
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="true"
+    android:layout_gravity="center">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="120dp" />
+
+    <TextView
+        android:text="Phase1 0 points, phase2 0 points, total score 0 points"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_score"
+        android:textSize="20sp"
+        android:textColor="@color/text_color1"
+        android:textStyle="bold"
+        tools:text=""
+        android:textAlignment="center"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <TextView
+        android:text="Username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_name"
+        android:textAlignment="center"
+        tools:text="" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint= "@string/input_username"
+        android:textStyle="bold"
+        android:textColor="@color/text_color1"
+        android:textSize="20sp"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:textAlignment="center" />
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:elevation="@dimen/elevation_high"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_submit"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:theme="@style/Button2Style" />
+
+        <Button
+            android:id="@+id/button_close"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/closeButton"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:theme="@style/Button1Style" />
+
+    </LinearLayout>
+
+</LinearLayout>

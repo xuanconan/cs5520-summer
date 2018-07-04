@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="User"
+            android:layout_column="0"
+            android:textColor="@color/text_color1"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/userScore"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Score"
+            android:layout_column="1"
+            android:textColor="@color/text_color1"
+            android:textSize="15sp"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/userTime"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:layout_column="2"
+            android:textColor="@color/text_color1"
+            android:textSize="15sp"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/userWord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Best Word"
+            android:layout_column="3"
+            android:textColor="@color/text_color1"
+            android:textSize="15sp"
+            android:layout_marginLeft="5dp"/>
+
+    </GridLayout>
+
+
+
+
+</LinearLayout>

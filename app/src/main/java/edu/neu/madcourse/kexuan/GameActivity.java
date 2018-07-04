@@ -98,7 +98,7 @@ public class GameActivity extends Activity {
             public void onCheckedChanged(CompoundButton buttonView,
                                          boolean isChecked) {
                 if (isChecked) {
-                    mediaPlayer.setVolume(0.7f, 0.7f);
+                    mediaPlayer.setVolume(1.0f, 1.0f);
                     mediaPlayer.setLooping(true);
                     mediaPlayer.start();
                 } else {
@@ -142,7 +142,7 @@ public class GameActivity extends Activity {
     protected void onResume() {
         super.onResume();
         mediaPlayer = MediaPlayer.create(this, R.raw.mario);
-        mediaPlayer.setVolume(0.7f, 0.7f);
+        mediaPlayer.setVolume(1.0f, 1.0f);
         mediaPlayer.setLooping(true);
         mediaPlayer.start();
     }

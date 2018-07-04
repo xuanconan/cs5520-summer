@@ -17,5 +17,24 @@
         <item name="android:scaleType">centerCrop</item>
     </style>
 
+    <style name="Button1Style" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">#f93d3d</item>
+        <item name="colorButtonNormal">#FF5722</item>
+    </style>
+
+    <style name="Button2Style" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">#E0F2F1</item>
+        <item name="colorButtonNormal">#009688</item>
+    </style>
+
+    <style name="Button3Style" parent="Theme.AppCompat.Light">
+        <item name="colorButtonNormal">#3d4af9</item>
+        <item name="colorControlHighlight">#e4f4fc</item>
+    </style>
+
+    <style name="Button4Style" parent="Theme.AppCompat.Light">
+        <item name="colorButtonNormal">#e4f4fc</item>
+        <item name="colorControlHighlight">#f93c3c</item>
+    </style>
 
 </resources>
