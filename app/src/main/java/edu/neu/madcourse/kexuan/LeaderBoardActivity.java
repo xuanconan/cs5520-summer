@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -65,7 +66,7 @@ public class LeaderBoardActivity extends Activity {
         }
     }
 
-    // send notification
+    // send message
     private void sendCongrat(String to) {
 
         if (sender.isEmpty()) {
@@ -84,7 +85,7 @@ public class LeaderBoardActivity extends Activity {
                                 }
                             }
                             sender = from;
-                            System.out.println("sender now:" + sender);
+                            System.out.println("current sender:" + sender);
                         }
 
                         @Override
@@ -118,17 +119,15 @@ public class LeaderBoardActivity extends Activity {
             outputStream.close();
 
             InputStream inputStream = conn.getInputStream();
-            System.out.println("is= " + inputStream);
 
-            final String resp = convertStreamToString(inputStream);
+            final String response = convertStreamToString(inputStream);
 
-            System.out.println("resp= " + resp);
             Handler h = new Handler(Looper.getMainLooper());
             h.post(new Runnable() {
                 @Override
                 public void run() {
-                    System.out.println("resp is: " + resp);
-//                    Toast.makeText(Leaderboard_Activity.this, resp, Toast.LENGTH_LONG);
+                    System.out.println("response:" + response);
+                    Toast.makeText(getApplication(), "Thank you for the grating!", Toast.LENGTH_SHORT).show();
                 }
             });
         } catch (JSONException | IOException e) {
@@ -149,7 +148,7 @@ public class LeaderBoardActivity extends Activity {
         db = FirebaseDatabase.getInstance().getReference();
         token = FirebaseInstanceId.getInstance().getToken();
         sender = "";
-        System.out.println("token before= "+token);
+        System.out.println("token from: "+token);
         if (token.isEmpty()) {
             TextView tv = new TextView(this);
             tv.setText("No connection.");
@@ -162,7 +161,7 @@ public class LeaderBoardActivity extends Activity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 vg.removeAllViews();
                 View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.leader_list, null);
-//                vg.addView(view);
+
                 GenericTypeIndicator<HashMap<String, Player>> t = new GenericTypeIndicator<HashMap<String, Player>>() {
                 };
                 Map<String, Player> myMap = dataSnapshot.getValue(t);
@@ -208,10 +207,9 @@ public class LeaderBoardActivity extends Activity {
                             + "=" + list.get(i).getValue().totalScore;
 
                     String word = list.get(i).getValue().highestScoreWord + ": " + list.get(i).getValue().highestScore;
+
                     ((TextView) v.findViewById(R.id.userTimeLead)).setText(list.get(i).getValue().time);
-
                     ((TextView) v.findViewById(R.id.userScoreLead)).setText(score);
-
                     ((TextView) v.findViewById(R.id.userWordLead)).setText(word);
                     vg.addView(v);
                 }

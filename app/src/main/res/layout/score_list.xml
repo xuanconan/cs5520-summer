@@ -13,7 +13,7 @@
 
         <TextView
             android:id="@+id/username"
-            android:layout_width="60dp"
+            android:layout_width="75dp"
             android:layout_height="wrap_content"
             android:text="User"
             android:layout_column="0"
@@ -34,7 +34,7 @@
 
         <TextView
             android:id="@+id/userTime"
-            android:layout_width="100dp"
+            android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:text="Date"
             android:layout_column="2"
