@@ -10,8 +10,8 @@ android {
         applicationId "edu.neu.madcourse.kexuan"
         minSdkVersion 25
         targetSdkVersion 27
-        versionCode 4
-        versionName "4.0 - test"
+        versionCode 5
+        versionName "5 - test"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

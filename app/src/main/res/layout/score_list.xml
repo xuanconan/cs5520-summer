@@ -50,7 +50,7 @@
             android:layout_column="3"
             android:textColor="@color/text_color1"
             android:textSize="15sp"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="0dp"/>
 
     </GridLayout>
 
