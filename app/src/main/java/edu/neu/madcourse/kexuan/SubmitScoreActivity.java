@@ -1,10 +1,19 @@
 package edu.neu.madcourse.kexuan;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -55,6 +64,7 @@ public class SubmitScoreActivity extends Activity {
     private Button button_close;
     private Set<String> current_names;
     private Map<String, List<Player>> content_map;
+    private Context mContext;
 
 
     @Override
@@ -119,8 +129,13 @@ public class SubmitScoreActivity extends Activity {
 
         //save the username, check highest score
         button_sumbit.setOnClickListener(new View.OnClickListener() {
+
+
+
+
             @Override
             public void onClick(View v) {
+                mContext = v.getContext();
                 final String name = username.getText().toString();
 
                 db.child("leaderboardUser").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -132,18 +147,30 @@ public class SubmitScoreActivity extends Activity {
                         Map<String, Player> name_map = dataSnapshot.getValue(t);
                         if (name_map == null)
                             name_map = new HashMap<>();
+
+                        int highest = 0;
+                        for(Player a : name_map.values()){
+                            if (a.totalScore > highest) highest = a.totalScore;
+                        }
+
                         if (current_names.contains(name)) {
                             content_map.get(name).add(player);
                             db.child("scoreboardUser").child(token).setValue(content_map);
                             Player lastInfo = name_map.get(name);
-                            if (player.totalScore > lastInfo.totalScore) {
+
+                            if(player.totalScore > highest){
+                                System.out.println("----------player" + player.totalScore + "  name ------" + name);
                                 //create a thread
                                 new Thread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        onGetNewHighScore(totalScore, name);
+                                        onGetNewHighScore(player.totalScore, name);
                                     }
                                 }).start();
+                            }
+
+                            if (player.totalScore > lastInfo.totalScore) {
+
                                 player.token = token;
                                 name_map.put(name, player);
                                 db.child("leaderboardUser").setValue(name_map);
@@ -152,6 +179,17 @@ public class SubmitScoreActivity extends Activity {
                             username.setText("");
                             name_text.setText("Name already exists");
                         } else {
+                            if(player.totalScore > highest){
+                                System.out.println("----------player" + player.totalScore + "  name ------" + name);
+                                //create a thread
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        onGetNewHighScore(player.totalScore, name);
+                                    }
+                                }).start();
+                            }
+
                             List<Player> list = new ArrayList<>();
                             list.add(player);
                             content_map.put(name, list);
@@ -159,6 +197,7 @@ public class SubmitScoreActivity extends Activity {
                             player.token = token;
                             name_map.put(name, player);
                             db.child("leaderboardUser").setValue(name_map);
+
                         }
                     }
 
@@ -187,51 +226,41 @@ public class SubmitScoreActivity extends Activity {
 
     private void onGetNewHighScore(int score, String name) {
 
-        JSONObject jPayload = new JSONObject();
-        JSONObject jNotification = new JSONObject();
-        try {
-            jNotification.put("title", "Congratulations!");
-            jNotification.put("body", name + " made a new highest score of " + score + "!");
-            jNotification.put("sound", "default");
-            jNotification.put("badge", "1");
-            jNotification.put("click_action", "OPEN_ACTIVITY_1");
-            System.out.println("token= " + token);
-            jPayload.put("to", token);
-            jPayload.put("priority", "high");
-            jPayload.put("notification", jNotification);
-            URL url = new URL("https://fcm.googleapis.com/fcm/send");
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            System.out.println("conn= " + conn);
-
-            conn.setRequestMethod("POST");
-            conn.setRequestProperty("Authorization", SERVER_KEY);
-            conn.setRequestProperty("Content-Type", "application/json");
-            conn.setDoOutput(true);
-            OutputStream outputStream = conn.getOutputStream();
-            outputStream.write(jPayload.toString().getBytes());
-            outputStream.close();
-
-            System.out.println("output finish ");
-            InputStream inputStream = conn.getInputStream();
-            System.out.println("is= " + inputStream);
-            final String resp = convertStreamToString(inputStream);
-
-            System.out.println("resp= " + resp);
-            Handler h = new Handler(Looper.getMainLooper());
-            h.post(new Runnable() {
-                @Override
-                public void run() {
-                    System.out.println("resp is: " + resp);
-                }
-            });
-        } catch (JSONException | IOException e) {
-            e.printStackTrace();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            String channelId = "chat";
+            String channelName = "聊天消息";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            createNotificationChannel(channelId, channelName, importance);
+            channelId = "subscribe";
+            channelName = "订阅消息";
+            importance = NotificationManager.IMPORTANCE_DEFAULT;
+            createNotificationChannel(channelId, channelName, importance);
         }
+
+        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        Notification notification = new NotificationCompat.Builder(this, "chat")
+                .setContentTitle("New highest score!")
+                .setContentText(name + "just made: "+ score + "!")
+                .setWhen(System.currentTimeMillis())
+                .setSmallIcon(R.drawable.scoreicon)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.scoreicon))
+                .setAutoCancel(false)
+                .build();
+        manager.notify(1, notification);
     }
 
     private String convertStreamToString(InputStream is) {
         Scanner s = new Scanner(is).useDelimiter("\\A");
         return s.hasNext() ? s.next().replace(",", ",\n") : "";
+    }
+
+
+    @TargetApi(Build.VERSION_CODES.O)
+    private void createNotificationChannel(String channelId, String channelName, int importance) {
+        NotificationChannel channel = new NotificationChannel(channelId, channelName, importance);
+        NotificationManager notificationManager = (NotificationManager) getSystemService(
+                NOTIFICATION_SERVICE);
+        notificationManager.createNotificationChannel(channel);
     }
 
 }

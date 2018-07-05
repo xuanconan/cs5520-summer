@@ -20,6 +20,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import android.support.v4.app.NotificationCompat;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.graphics.Color;
+import android.app.Notification;
+import android.graphics.BitmapFactory;
+import android.content.Intent;
+import android.app.PendingIntent;
+import android.net.Uri;
+import android.app.NotificationChannelGroup;
+import android.os.Build;
+import android.annotation.TargetApi;
+
+
 public class ScoreBoardActivity extends Activity {
     private DatabaseReference db;
     private String token;
@@ -27,6 +41,7 @@ public class ScoreBoardActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_scoreboard);
@@ -74,6 +89,21 @@ public class ScoreBoardActivity extends Activity {
 
             }
         });
+
+    }
+
+
+
+
+
+
+
+    @TargetApi(Build.VERSION_CODES.O)
+    private void createNotificationChannel(String channelId, String channelName, int importance) {
+        NotificationChannel channel = new NotificationChannel(channelId, channelName, importance);
+        NotificationManager notificationManager = (NotificationManager) getSystemService(
+                NOTIFICATION_SERVICE);
+        notificationManager.createNotificationChannel(channel);
     }
 
 }
