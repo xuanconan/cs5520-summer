@@ -240,7 +240,7 @@ public class SubmitScoreActivity extends Activity {
         NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         Notification notification = new NotificationCompat.Builder(this, "chat")
                 .setContentTitle("New highest score!")
-                .setContentText(name + "just made: "+ score + "!")
+                .setContentText(name + " just made: "+ score + "!")
                 .setWhen(System.currentTimeMillis())
                 .setSmallIcon(R.drawable.scoreicon)
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.scoreicon))

@@ -52,7 +52,7 @@ public class ScoreBoardActivity extends Activity {
         System.out.println("The token is ---------" + token);
 
 
-        if(token.isEmpty()){
+        if(token.isEmpty() || token == null){
             System.out.println("Can't find token");
             TextView tv = new TextView(this);
             tv.setText("Can't find device token");

@@ -127,7 +127,7 @@ public class LeaderBoardActivity extends Activity {
                 @Override
                 public void run() {
                     System.out.println("response:" + response);
-                    Toast.makeText(getApplication(), "Thank you for the grating!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplication(), "Thank you :)", Toast.LENGTH_SHORT).show();
                 }
             });
         } catch (JSONException | IOException e) {
