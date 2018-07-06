@@ -217,10 +217,15 @@ public class GameFragment extends Fragment {
 
 
                     int score = getTotalScore();
-                    if(score > highestScore){
+
+                    int tempHigh = highestScore;
+
+                    if(score > tempHigh){
                         highestScore = score;
                         highestscoreWord = currWord;
                     }
+
+                    if(!currWord2.equals("") && score > tempHigh) highestscoreWord = currWord2;
 
                     totalScore += getTotalScore();
 
